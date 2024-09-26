@@ -61,10 +61,10 @@ jobs:
       - name: Mirror the Github organization repos to Gitee.
         uses: Yikun/hub-mirror-action@master
         with:
-          src: 'github/FrankJingZhi'
-          dst: 'gitee/Frank-Awesome'
+          src: 'github/Bouncing18'
+          dst: 'gitee/Bouncing'
           dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
           dst_token: ${{ secrets.GITEE_TOKEN }}
-          static_list: "frank-blog"
+          static_list: "bouncing18.github.io"
           force_update: true
           timeout: '5m'

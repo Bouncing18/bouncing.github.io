@@ -48,23 +48,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-  # 同步github项目代码到gitee.
-  mirroring-gitee:
-    needs: [build, deploy]
-    runs-on: ubuntu-latest
-    steps:
-      # nodejs使用的版本
-      - name: Use Node.js 16.x
-        uses: actions/setup-node@v2
-        with:
-          node-version: '16'
-      - name: Mirror the Github organization repos to Gitee.
-        uses: Yikun/hub-mirror-action@master
-        with:
-          src: 'github/Bouncing18'
-          dst: 'gitee/Bouncing'
-          dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
-          dst_token: ${{ secrets.GITEE_TOKEN }}
-          static_list: "bouncing18.github.io"
-          force_update: true
-          timeout: '5m'
